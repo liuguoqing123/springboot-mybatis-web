@@ -11,6 +11,17 @@
 		<result property="sexEnum" column="sex_enum" />
 	</resultMap>
 
+	<resultMap type="java.util.Map" id="resultMap">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="user_id" column="userId" />
+		<result property="user_name" column="userName" />
+	</resultMap>
+
+	<select id="selectUserAndDemo" resultMap="resultMap">
+		SELECT id, NAME ,user_id, user_name FROM demo , USER WHERE id = user_id;
+	</select>
+
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		insert into demo(name,update_time,sex_enum) values(#{name},#{updateTime},#{sexEnum})
 	</insert>

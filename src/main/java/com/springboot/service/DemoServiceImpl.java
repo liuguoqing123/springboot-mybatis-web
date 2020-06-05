@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DemoServiceImpl implements  DemoService{
@@ -50,6 +51,12 @@ public class DemoServiceImpl implements  DemoService{
     public int delete(int id) {
         System.out.println("DemoService.delete | id:"+id);
         return demoMapper.delete(id);
+    }
+
+    @Override
+    public List<Map> selectUserAndDemo() {
+        System.out.println("DemoService.selectAll");
+        return demoMapper.selectUserAndDemo();
     }
 
 
